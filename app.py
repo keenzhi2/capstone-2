@@ -6,7 +6,7 @@ import joblib
 model = joblib.load("best_xgboost_model (1).pkl")  # Load model here
 scaler = joblib.load("scaler (1).pkl")
 
-st.title("Sovereign Debt Crisis Predictor")
+st.title("Early Warning Detection for Sovereign Debt Crisis in Asia")
 st.write("Enter the details below to check for a sovereign debt crisis.")
 
 country = st.text_input("Enter Country Name")
@@ -85,7 +85,7 @@ if st.button("🔍 Predict Crisis"):
 
         # Make prediction using the trained model
         prediction = model.predict(input_data_scaled)[0]
-        result = "🔴 Crisis" if prediction == 1 else "🟢 No Crisis"
+        result = "🔴 High Risk Sovereign Debt Crisis" if prediction == 1 else "🟢 Low Risk Soveregin Debt Crisis"
 
         # Display the result
         st.subheader(f"Prediction for {country} in {year}:")
