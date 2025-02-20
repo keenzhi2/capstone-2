@@ -14,6 +14,7 @@ year = st.number_input("Enter Year", min_value=2000, max_value=2024, step=1)
 
 if st.button("🔍 Predict Crisis"):
     # Get prediction from the model (1 = Crisis, 0 = No Crisis)
+    input_data_scaled = scaler.transform(input_data)
     prediction = model.predict(input_data_scaled)[0]
     result = "🔴 Crisis" if prediction == 1 else "🟢 No Crisis"
 
