@@ -3,8 +3,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-model = joblib.load("best_xgboost_model.pkl")  # Load model here
-scaler = joblib.load("scaler.pkl")
+model = joblib.load("best_xgboost_model (1).pkl")  # Load model here
+scaler = joblib.load("scaler (1).pkl")
 
 st.title("Sovereign Debt Crisis Predictor")
 st.write("Enter the details below to check for a sovereign debt crisis.")
