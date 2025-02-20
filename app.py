@@ -18,7 +18,7 @@ age_dependency_ratio = st.number_input("Age dependency ratio (% of working-age p
 broad_money_to_reserves_ratio = st.number_input("Broad money to total reserves ratio", min_value=-100.0, step=0.1)
 claims_on_central_government = st.number_input("Claims on central government, etc. (% GDP)", min_value=-100.0, step=0.1)
 consumer_price_index = st.number_input("Consumer price index (2010 = 100)", min_value=-100.0, step=0.1)
-control_of_corruption = st.number_input("Control of Corruption: Estimate", min_value=-100.0, max_value=100.0, step=0.1)
+control_of_corruption = st.number_input("Control of Corruption: Estimate", min_value=-100.0, max_value=1000.0, step=0.1)
 current_account_balance = st.number_input("Current account balance (% of GDP)", min_value=-100.0, max_value=100.0, step=0.1)
 current_health_expenditure = st.number_input("Current health expenditure (% of GDP)", min_value=-100.0, step=0.1)
 domestic_credit_private_sector = st.number_input("Domestic credit to private sector (% of GDP)", min_value=-100.0, step=0.1)
