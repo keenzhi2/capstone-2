@@ -79,7 +79,7 @@ input_data = pd.DataFrame({
 if st.button("🔍 Predict Crisis"):
     # Check if all inputs are provided
     if input_data.isnull().any().any():
-    st.warning("Please provide all input values!")
+      st.warning("Please provide all input values!")
     else:
         # Scale the input data using the same scaler that was used during training
         input_data_scaled = scaler.transform(input_data)
