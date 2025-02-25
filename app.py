@@ -90,7 +90,7 @@ if st.button("🔍 Predict Crisis"):
             st.error(f"Error in prediction: {e}")
         
         # Interpret prediction based on a threshold
-        result = "🔴 High Risk Sovereign Debt Crisis" if prediction_prob >= 0.5 else "🟢 Low Risk Sovereign Debt Crisis"
+        result = "🔴 High Risk Sovereign Debt Crisis" if prediction_prob >= 0.7 else "🟢 Low Risk Sovereign Debt Crisis"
         st.subheader(f"Prediction for {country} in {year}:")
         st.markdown(f"## {result}")
 
