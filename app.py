@@ -75,24 +75,24 @@ input_data = pd.DataFrame({
 })
 
 
-# When user clicks the predict button
 if st.button("🔍 Predict Crisis"):
-    # Check if all inputs are provided
     if input_data.isnull().any().any():
-      st.warning("Please provide all input values!")
+        st.warning("Please provide all input values!")
     else:
-        # Scale the input data using the same scaler that was used during training
+        # Scale the input data
         input_data_scaled = scaler.transform(input_data)
-
-        # Make prediction using the trained model
-        prediction = model.predict(input_data_scaled)[0]
-        result = "🔴 High Risk Sovereign Debt Crisis" if prediction == 1 else "🟢 Low Risk Soveregin Debt Crisis"
-
-        # Display the result
+        
+        # Get the raw output of the model
+        try:
+            prediction_prob = model.predict_proba(input_data_scaled)[0][1]  # Probability of "high risk" (1)
+            st.write(f"Raw prediction probability: {prediction_prob}")
+        except Exception as e:
+            st.error(f"Error in prediction: {e}")
+        
+        # Interpret prediction based on a threshold
+        result = "🔴 High Risk Sovereign Debt Crisis" if prediction_prob >= 0.5 else "🟢 Low Risk Sovereign Debt Crisis"
         st.subheader(f"Prediction for {country} in {year}:")
         st.markdown(f"## {result}")
 
-        # Optionally, show the feature values that contributed to the prediction
-        st.write("### Input Features:")
-        for feature, value in input_data.iloc[0].items():
-            st.write(f"{feature}: {value}")
+   
+
