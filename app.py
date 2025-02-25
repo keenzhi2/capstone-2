@@ -74,8 +74,6 @@ input_data = pd.DataFrame({
     'Use of IMF credit (DOD, current US$)': [use_of_imf_credit]
 })
 
-prediction = model.predict(input_data_scaled)[0]
-st.write(f"Prediction: {prediction}")
 
 # When user clicks the predict button
 if st.button("🔍 Predict Crisis"):
